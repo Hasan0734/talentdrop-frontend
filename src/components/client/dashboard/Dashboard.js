@@ -42,8 +42,39 @@ const Dashboard = () => {
                 <div className='container-md pt-5'>
                     <div className='mt-5'>
                         <h1 className='text-center display-5'>Referrer: Dashboard</h1>
-                        <div className={Styles.dashboard__nav}>
-                            <ul className='list-unstyled d-flex justify-content-between'>
+                        <div className='table-responsive'>
+
+                            <table className='table '>
+                                <thead className={`${Styles.table__head} border-none`}>
+
+                                    <tr className='borderless'>
+                                        <th>Candidate</th>
+                                        <th>TALENTDROP REC</th>
+                                        <th>CANDIDATE STATUS</th>
+                                        <th>ROLE</th>
+                                        <th>SUBMITTED</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>hello</td>
+                                        <td>hello</td>
+                                        <td>hello</td>
+                                        <td>hello</td>
+                                        <td>hello</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>hello</td>
+                                        <td>hello</td>
+                                        <td>hello</td>
+                                        <td>hello</td>
+                                        <td>hello</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {/* <ul className='list-unstyled d-flex justify-content-between'>
                                 <li
                                     onClick={() => {
                                         selectedItem("candidate")
@@ -104,7 +135,7 @@ const Dashboard = () => {
                                         <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted descending"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
                                     </span>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                 </div>

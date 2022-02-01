@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import avatar from '../../../assets/avatar.png';
 import styles from './Header.module.css';
-
 const Header = () => {
   const [start, setStart] = useState(false)
   const [status, setStatus] = useState(false)
@@ -37,7 +36,7 @@ const Header = () => {
             <div className={styles.header__logo}>
               <Link href="/">
                 <a >
-                  <img src="/images/Scouted.png" width="160px" alt="logo" />
+                  <img src="/public/images/Scouted.png" alt="logo" />
                 </a>
               </Link>
             </div>

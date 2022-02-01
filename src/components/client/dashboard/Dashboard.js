@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Layout from '../Layout';
+import Layout from '../layout';
 import Styles from './Dashboard.module.css';
 const Dashboard = () => {
     const [isTrue, setIstrue] = useState({

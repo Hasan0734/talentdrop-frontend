@@ -6,7 +6,7 @@ import styles from './Banner.module.css';
 import Tags from './Tags';
 
 
-const Banner = () => {
+const Banner = ({ tags }) => {
   const [changeValue, setChangeValue] = useState()
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -50,7 +50,7 @@ const Banner = () => {
             <div className={styles.banner__tags}>
               <p>
                 <b>Or try a tag:</b>
-                <Tags></Tags>
+                <Tags tags={tags} />
               </p>
             </div>
           </div>

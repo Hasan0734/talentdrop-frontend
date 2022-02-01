@@ -36,7 +36,9 @@ const Header = () => {
           <div className="col-4">
             <div className={styles.header__logo}>
               <Link href="/">
-                <a className={styles.header__logo_link}>Talentdrop</a>
+                <a >
+                  <img src="/images/Scouted.png" width="160px" alt="logo" />
+                </a>
               </Link>
             </div>
           </div>

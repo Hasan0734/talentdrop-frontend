@@ -6,6 +6,10 @@
   z-index: 999;
 }
 
+.header__logo img {
+  width: 160px;
+}
+
 .header__logo_link {
   color: var(--font-color-1);
   font-weight: 700;

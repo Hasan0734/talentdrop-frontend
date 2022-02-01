@@ -36,7 +36,7 @@ const Header = () => {
             <div className={styles.header__logo}>
               <Link href="/">
                 <a >
-                  <img src="/images/Scouted.png" alt="logo" />
+                  <img src="/images/Scouted.png" className='' alt="logo" />
                 </a>
               </Link>
             </div>
@@ -89,7 +89,11 @@ const Header = () => {
                 <ul className="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
 
                   <li className={styles.dropdown__title}>Referrer</li>
-                  <li><a className="dropdown-item" href="#">Dashboard</a></li>
+                  <li>
+                    <Link href="/user/dashboard">
+                      <a className="dropdown-item">Dashboard</a>
+                    </Link>
+                  </li>
 
                 </ul>
 

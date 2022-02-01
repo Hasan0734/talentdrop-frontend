@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import Layout from '../layout';
 import Styles from './Dashboard.module.css';
@@ -44,10 +45,10 @@ const Dashboard = () => {
                         <h1 className='text-center display-5'>Referrer: Dashboard</h1>
                         <div className='table-responsive'>
 
-                            <table className='table '>
-                                <thead className={`${Styles.table__head} border-none`}>
+                            <table className={`table table-borderless ${Styles.table}`}>
+                                <thead className='text-center'>
 
-                                    <tr className='borderless'>
+                                    <tr className=''>
                                         <th>Candidate</th>
                                         <th>TALENTDROP REC</th>
                                         <th>CANDIDATE STATUS</th>
@@ -55,87 +56,42 @@ const Dashboard = () => {
                                         <th>SUBMITTED</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className='text-center'>
                                     <tr>
-                                        <td>hello</td>
-                                        <td>hello</td>
-                                        <td>hello</td>
-                                        <td>hello</td>
-                                        <td>hello</td>
+                                        <td className="d-flex align-items-center">hello</td>
+                                        <td><p className={Styles.table__rec}>Spam</p></td>
+                                        <td>
+                                            <p className={Styles.table__status}>Pass</p>
+                                            <p className='mt-1 mb-0'>Update: 1/30</p>
+                                        </td>
+                                        <td className={Styles.table__role}>
+                                            <Link href="/general_referral">
+                                                <a className={Styles.job__title}>General Referral</a>
+                                            </Link>
+                                            <p className='mt-1 mb-0'>
+                                                <img src="/images/logo.png" alt="" />
+                                                <Link href="/talentrop">
+                                                    <a className={Styles.company__name}>Talentdrop</a>
+                                                </Link>
 
+                                            </p>
+                                        </td>
+                                        <td className='d-flex gap-5 align-items-center justify-content-center'>
+                                            <div>
+                                                <p className='mb-0'>{new Date().toLocaleDateString()}</p>
+                                                <p className='mb-0'>{new Date().toLocaleTimeString()}</p>
+                                            </div>
+                                            <p className='mb-0'>
+                                                <svg style={{ width: '15px' }} xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="external-link-alt" className="svg-inline--fa fa-external-link-alt fa-w-16" role="img" viewBox="0 0 512 512">
+                                                    <path fill="currentColor" d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z" />
+                                                </svg>
+                                            </p>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>hello</td>
-                                        <td>hello</td>
-                                        <td>hello</td>
-                                        <td>hello</td>
-                                        <td>hello</td>
 
-                                    </tr>
                                 </tbody>
                             </table>
-                            {/* <ul className='list-unstyled d-flex justify-content-between'>
-                                <li
-                                    onClick={() => {
-                                        selectedItem("candidate")
-                                    }}
 
-
-                                    className="d-flex gap-5 align-items-center">
-                                    Candidate
-                                    <span className={isTrue.candidate ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted ascending"><path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
-                                        </svg>
-                                    </span>
-                                    <span className={isTrueSecond.candidate ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted descending"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
-                                    </span>
-                                </li>
-                                <li
-                                    onClick={() => selectedItem("talentdropRec")}
-                                    className="d-none gap-5 align-items-center d-sm-flex">
-                                    Talentdrop Rec
-                                    <span className={isTrue.talentdropRec ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted ascending"><path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path></svg>
-                                    </span>
-                                    <span className={isTrueSecond.talentdropRec ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted descending"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
-                                    </span>
-                                </li>
-                                <li
-                                    onClick={() => selectedItem("status")}
-                                    className="d-none d-sm-flex gap-5 align-items-center">
-                                    Candidate Status
-                                    <span className={isTrue.status ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted ascending"><path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path></svg>
-                                    </span>
-                                    <span className={isTrueSecond.status ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted descending"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
-                                    </span>
-                                </li>
-                                <li
-                                    onClick={() => selectedItem("role")}
-                                    className="d-flex gap-5 align-items-center">
-                                    Role
-                                    <span className={isTrue.role ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted ascending"><path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path></svg>
-                                    </span>
-                                    <span className={isTrueSecond.role ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted descending"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
-                                    </span>
-                                </li>
-                                <li
-                                    onClick={() => selectedItem("submited")}
-                                    className="d-none d-sm-flex gap-5 align-items-center">
-                                    Submited
-                                    <span className={isTrue.submited ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted ascending"><path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path></svg>
-                                    </span>
-                                    <span className={isTrueSecond.submited ? 'd-block' : 'd-none'}>
-                                        <svg style={{ width: '30px' }} viewBox="0 0 24 24" focusable="false" className="chakra-icon css-1wsjt4h" aria-label="sorted descending"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
-                                    </span>
-                                </li>
-                            </ul> */}
                         </div>
                     </div>
                 </div>

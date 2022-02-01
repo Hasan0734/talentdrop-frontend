@@ -5,7 +5,7 @@ const Activity = () => {
         <>
             <div className={Styles.activity__area}>
                 <label>Add Note</label>
-                <textarea className={Styles.text__area} name="" id="" >
+                <textarea className={Styles.text__area} name="" rows="7" id="" >
 
                 </textarea>
                 <div className="text-end">

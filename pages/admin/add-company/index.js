@@ -1,16 +1,16 @@
-import AddCompany from "../../../src/components/admin/Company/AddCompany/AddCompany";
 import { adminAuth } from "../../../__lib__/helpers/requireAuthentication";
+import AddCompanies from './../../../src/components/admin/Company/AddCompany/AddCompany';
 
 const index = () => {
     return (
         <>
-            <AddCompany />
+            <AddCompanies />
         </>
     );
 };
 
 export default index;
-export const getStaticProps = adminAuth(context => {
+export const getServerSideProps = adminAuth(context => {
     return {
         props: {}
     }

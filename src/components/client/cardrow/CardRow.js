@@ -7,9 +7,6 @@ import defaultLogo from '/public/images/default-logo.png';
 export default function CardRow({ job }) {
   const { job_title, job_bounty, job_slug, company } = job
   const { company_logo, company_name, company_slug } = company
-
-
-
   const router = useRouter()
   return (
     <div className={styles.card__row_wrapper}>

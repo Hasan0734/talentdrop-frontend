@@ -14,7 +14,7 @@ const Refer = () => {
     const [loading, setLoading] = useState(true);
     const [color, setColor] = useState("#ffffff");
     const [recommender, setRecommender] = useState(false)
-    const [job, setJob] = useState({})
+    const [job, setJob] = useState(null)
     const [disable, setDisable] = useState(false)
     // const [terms, setTerms] = useState(false)
     useEffect(() => {
@@ -23,6 +23,7 @@ const Refer = () => {
                 setJob(res)
             })
     }, [query.company_slug, query.job_slug])
+    console.log(job)
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -53,7 +54,7 @@ const Refer = () => {
                     </div>
                     <div className={Styles.refer_area}>
 
-                        <h2 className="text-center"> <Link href="/"><a >{job.job_title}</a></Link> for {job.company?.company_name}</h2>
+                        <h2 className="text-center"> <Link href="/"><a >{job?.job_title}</a></Link> for {job?.company?.company_name}</h2>
 
                         <form className={Styles.refer_form} onSubmit={handleSubmit(onSubmit)}>
                             <h3 className={Styles.refer_form_title}>Referrer</h3>

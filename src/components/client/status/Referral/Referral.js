@@ -40,7 +40,7 @@ const Referral = () => {
                 <p className='mb-0'>Why are you referring this person? What makes this person stand out?</p>
                 <p className='text-primary'>Ans</p>
 
-                <p className='mb-0'>How familiar are you with this person's work?</p>
+                <p className='mb-0'>How familiar are you with this person&apos;s work?</p>
                 <p className='text-primary'>Very - first hand knowledge</p>
 
                 <p className='mb-0'>How would you describe them?</p>
@@ -49,10 +49,10 @@ const Referral = () => {
                 <p className='mb-0'>How open to new opportunities are they?</p>
                 <p className='text-primary'>Not sure</p>
 
-                <p className='mb-0'>You attest to their knowledge of being referred to Talentdrop, or a Talentdrop partner company. We'll be checking in with them!</p>
+                <p className='mb-0'>You attest to their knowledge of being referred to Talentdrop, or a Talentdrop partner company. We&apos;ll be checking in with them!</p>
                 <p className='text-primary'>Yes</p>
 
-                <p className='mb-0'>How'd you hear about us?</p>
+                <p className='mb-0'>How&apos;d you hear about us?</p>
                 <p className='text-primary'>YC</p>
 
                 <p className='mb-0'>Would you split your bounty payment with the candidate?</p>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCountries } from '../../../../store/countries/actions';
 import { modalToggle } from '../../../../store/settings/actions';
-import { setStates } from '../../../../store/States/actions';
+import { setStates } from '../../../../store/states/actions';
 import Layout from '../Layout/Layout';
 import AddState from './AddState/AddState';
 import UpdateState from './UpdateState/UpdateState';

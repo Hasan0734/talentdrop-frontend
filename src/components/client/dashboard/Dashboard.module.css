@@ -5,6 +5,10 @@
     text-transform: uppercase;
 }
 
+.table thead tr:nth-child(1) {
+    color: blue;
+}
+
 .table tbody tr td {
     padding: 15px 30px;
 
@@ -48,4 +52,29 @@
     border-bottom: 1px solid #EDF2F7;
     border-top: 1px solid #EDF2F7;
     padding: 10px;
+}
+
+/* .table__header {
+    display: none;
+} */
+
+@media screen and (max-width: 576px) {
+    .table__header {
+        display: none;
+
+    }
+
+    .tbody__data {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .table__header {
+        display: none;
+    }
+
+    .tbody__data {
+        display: none;
+    }
 }

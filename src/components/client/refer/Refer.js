@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useSelector } from 'react-redux';
 import { BeatLoader } from "react-spinners";
 import { getData, postData } from "../../../../__lib__/helpers/HttpService";
 import Layout from "../layout";
@@ -17,13 +18,17 @@ const Refer = () => {
     const [job, setJob] = useState(null)
     const [disable, setDisable] = useState(false)
     // const [terms, setTerms] = useState(false)
+    const { users } = useSelector(state => state)
+
     useEffect(() => {
         getData(`/job/find/${query.company_slug}/${query.job_slug}`)
             .then(res => {
                 setJob(res)
             })
     }, [query.company_slug, query.job_slug])
-    console.log(job)
+
+
+
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -54,20 +59,25 @@ const Refer = () => {
                     </div>
                     <div className={Styles.refer_area}>
 
-                        <h2 className="text-center"> <Link href="/"><a >{job?.job_title}</a></Link> for {job?.company?.company_name}</h2>
+                        <h2 className="text-center">
+                            <Link href={`/c/${job?.company?.company_slug}/${job?.job_slug}`}><a >{job?.job_title} </a></Link>
+                            <span> for </span>
+                            <Link href={`/c/${job?.company?.company_slug}`}><a className="text-black"> {job?.company?.company_name}</a></Link></h2>
 
                         <form className={Styles.refer_form} onSubmit={handleSubmit(onSubmit)}>
                             <h3 className={Styles.refer_form_title}>Referrer</h3>
                             <div className="mb-4">
                                 <label>Name <span className="text-danger">*</span></label>
 
-                                <input className="form-control" {...register("referrer_name", { required: true })} />
+                                <input defaultValue={users?.user?.name} className="form-control" {...register("referrer_name", { required: true })} />
                                 {errors.referrer_name && <span className="text-danger">Required</span>}
+
                             </div>
+
                             <div className="mb-4">
                                 <label>Email <span className="text-danger">*</span></label>
 
-                                <input className="form-control" {...register("referrer_email", { required: true, pattern: /\S+@\S+\.\S+/ })} />
+                                <input defaultValue={users?.user?.email} className="form-control" {...register("referrer_email", { required: true, pattern: /\S+@\S+\.\S+/ })} />
                                 {errors.referrer_email?.type === 'required' && <span className="text-danger">Required</span>}
                                 {errors.referrer_email?.type === "pattern" && <span className="text-danger">Valid email required</span>}
                             </div>

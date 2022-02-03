@@ -2,18 +2,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogout } from '../../../../store/users/actions';
 import avatar from '../../../assets/avatar.png';
 import styles from './Header.module.css';
 const Header = () => {
   const [start, setStart] = useState(false)
   const [status, setStatus] = useState(false)
   const router = useRouter();
+  const { users } = useSelector(state => state)
+  const dispatch = useDispatch()
+
 
   const handleDashboard = () => {
-    router.push('/login')
+    if (!users?.token)
+      router.push('/login')
   }
 
-
+  const handleLogOut = () => {
+    dispatch(userLogout())
+    router.push('/')
+  }
   // useEffect(() => {
   //   const handleWindowClick = () => {
   //     setStatus(false)
@@ -64,9 +73,8 @@ const Header = () => {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li className={styles.dropdown__title}>How it works</li>
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  <li><a className="dropdown-item" href="#">Referring of Scouted</a></li>
+                  <li><a className="dropdown-item" href="#">Hiring of Scouted</a></li>
                 </ul>
               </li>
 
@@ -106,9 +114,21 @@ const Header = () => {
                 General Referral
               </button>
               <div className={styles.user__avatar}>
-                <div onClick={handleDashboard} className={styles.user__avatar_img}>
+                <div onClick={handleDashboard} className={styles.user__avatar_img}
+                  id={users.token && "navbarDarkDropdownMenuLink"}
+                  role={users.token && "button"}
+                  data-bs-toggle={users.token && "dropdown"}
+                  aria-expanded={users.token && "false"} >
                   <Image src={avatar} alt="img/png" />
                 </div>
+                {users.token &&
+                  <ul className="dropdown-menu mt-5" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a className="dropdown-item" href="#">Proflile</a></li>
+                    <li className={styles.user__logout}>
+                      <button className='dropdown-item btn' onClick={handleLogOut}>Logout</button>
+                    </li>
+                  </ul>
+                }
               </div>
               <div className={styles.mobile__menu}>
                 <i className="fas fa-bars"></i>

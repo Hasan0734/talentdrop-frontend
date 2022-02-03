@@ -43,11 +43,12 @@ export default function Login() {
         <div className={styles.login__form_wrapper}>
           <h3 className={styles.form__title}>Login Now</h3>
           <form onSubmit={handleSubmit(onSubmit)} action="" className={styles.login__form}>
-            {/* <input type="email" placeholder="Email" /> */}
             <input {...register("email", { required: true, pattern: /\S+@\S+\.\S+/ })} type="text" placeholder="Email" />
+            
             {errors.email?.type === 'required' && <span className="text-danger">Email is required</span>}
             {errors.email?.type === "pattern" && <span className="text-danger">Valid email required</span>}
-            {/* <input type="password" placeholder="Password" /> */}
+
+
             <input {...register("password", { required: true })} placeholder="Password" type="password" />
             {errors.password && <span className="text-danger">Password is required</span>}
 

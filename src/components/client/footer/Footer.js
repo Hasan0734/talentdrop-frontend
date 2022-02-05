@@ -26,27 +26,27 @@ export default function Footer() {
               <nav className={styles.footer__menu}>
                 <ul>
                   <li>
-                    <Link href="/our_team">
+                    <Link href="/about-us">
                       <a>our team</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms_of_use">
+                    <Link href="/terms">
                       <a>terms of use</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy_policy">
+                    <Link href="/privacy-policy">
                       <a>privacy policy</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/for_referrers">
+                    <Link href="/for-referrers">
                       <a>for referrers</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/employers">
+                    <Link href="/for-employers">
                       <a>for employers</a>
                     </Link>
                   </li>

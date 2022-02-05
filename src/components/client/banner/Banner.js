@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import img1 from '../../../assets/img1.png';
 import img2 from '../../../assets/img2.png';
@@ -7,10 +8,35 @@ import Tags from './Tags';
 
 
 const Banner = ({ tags }) => {
+  const [disable, setDisable] = useState(true)
   const [changeValue, setChangeValue] = useState()
+  const router = useRouter()
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    setChangeValue(values => ({ ...values, [name]: value }))
+
+    if (value) {
+      setDisable(false)
+
+    } else {
+      setDisable(true)
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert(changeValue)
+    if (changeValue.title) {
+      router.push(`/s/${changeValue.title}`)
+    } else {
+      router.push({
+        pathname: '/search',
+        query: changeValue,
+      })
+    }
+
+
   }
   return (
     <section className={styles.banner__section}>
@@ -25,9 +51,9 @@ const Banner = ({ tags }) => {
                 <div className={styles.banner__search}>
                   <i className="fas fa-search"></i>
                   <input
-                    onChange={e => setChangeValue(e.target.value)}
-                    name='searchType'
-                    type="search"
+                    onChange={handleChange}
+                    name='title'
+                    type=""
                     placeholder="What job are you looking for?"
                   />
                 </div>
@@ -36,10 +62,12 @@ const Banner = ({ tags }) => {
                   <input
                     name="location"
                     type=""
-                    placeholder="Where looking for?" />
+                    placeholder="Where looking for?"
+                    onChange={handleChange} />
                 </div>
                 <div className={styles.banner__submit}>
                   <input
+                    disabled={disable}
                     type="submit"
                     className="primary__button"
                     value="Find Job"

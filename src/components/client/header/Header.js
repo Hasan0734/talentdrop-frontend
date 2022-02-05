@@ -53,7 +53,7 @@ const Header = () => {
           <nav className="col-4">
             <ul className={styles.header__menu}>
               <li className={styles.header__menu_li}>
-                <Link href="#">
+                <Link href="/">
                   <a
 
                     id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -79,7 +79,7 @@ const Header = () => {
               </li>
 
               <li className={`${styles.header__menu_li} ''`}>
-                <Link href="#">
+                <Link href="/">
                   <a id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Status
                     {status ?

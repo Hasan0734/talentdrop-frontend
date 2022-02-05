@@ -32,7 +32,7 @@ const Referral = () => {
                         </Link>
                     </p>
                     <p className={Styles.description}>
-                        <Link href="">
+                        <Link href="/">
                             <a >https://facebook.com</a>
                         </Link>
                     </p>

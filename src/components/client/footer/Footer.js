@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../../assets/logo.png';
 import styles from './Footer.module.css';
+
 
 export default function Footer() {
   return (
@@ -11,9 +10,12 @@ export default function Footer() {
           <div className="col-12 col-md-7">
             <div className={`${styles.footer__info} text-center`}>
               <div className={styles.footer__logo}>
-                <Image src={logo} alt="talentdrop" />
+
                 <Link href="/">
-                  <a className={styles.header__logo_link}>Talentdrop</a>
+
+                  <a className={styles.header__logo_link}>
+                    <img width="25" src="/images/Scouted.png" alt="scouted" />
+                  </a>
                 </Link>
               </div>
               <p className={styles.footer__desc}>

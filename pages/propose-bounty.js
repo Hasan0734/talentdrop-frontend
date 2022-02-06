@@ -1,5 +1,5 @@
 import React from 'react';
-import ProposeBounty from '../src/components/client/proposeBounty/proposeBounty';
+import ProposeBounty from '../src/components/client/proposeBounty/ProposeBounty';
 
 const index = () => {
     return (

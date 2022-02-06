@@ -23,7 +23,7 @@ const Employers = () => {
                             <li>Anyone can submit a referral, and all are bounty-eligible. Candidates can submit themselves. We also have our own internal talent acquisition team who source for your roles.</li>
                             <li>We screen candidates first, and only recommend to you those who we think are a good fit.</li>
                             <li>You only owe the bounty when your new hire starts.</li>
-                            <li>The bounty is refundable for 90 days, in case your new hire doesn’t work out.</li>
+                            <li>The bounty is refundable for 90 days, in case your new hire doesn&apos;t work out.</li>
 
                         </ol>
                         <div className="mx-3">

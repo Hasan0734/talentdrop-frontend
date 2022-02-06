@@ -21,7 +21,7 @@ const About = () => {
                             <h1 className={styles.team__title}>Our Team</h1>
                             <div className="row">
                                 {teams.map((team, i) => (
-                                    <div className="col-sm-12 col-md-6 col-lg-3  mb-5 ">
+                                    <div key={i} className="col-sm-12 col-md-6 col-lg-3  mb-5 ">
                                         <div className={styles.team__card}>
                                             <img src={team.img} />
                                             <h3>{team.name}</h3>

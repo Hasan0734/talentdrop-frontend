@@ -43,7 +43,7 @@ export default function CardRow({ job }) {
           </div>
           <p className={styles.card__condition}>New</p>
           <p className={styles.card__price}>{`$${job_bounty}`}</p>
-          <button onClick={() => router.push(`/r/${company.company_slug}/${job_slug}/refer`)} type="submit">refer now</button>
+          <button onClick={() => router.push(`/r/${company.company_slug}/${job_slug}/`)} type="submit">refer now</button>
         </div>
         <p className={styles.card__schedule}>Remote/Fulltime</p>
       </div>

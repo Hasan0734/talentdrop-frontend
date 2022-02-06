@@ -19,7 +19,7 @@
 
 .header__menu_li a {
   color: var(--font-color-1);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 2rem;
   text-transform: capitalize;
 }

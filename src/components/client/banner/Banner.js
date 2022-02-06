@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import img1 from '../../../assets/img1.png';
-import img2 from '../../../assets/img2.png';
+// import img1 from '../../../assets/img1.png';
+// import img2 from '../../../assets/img2.png';
 import styles from './Banner.module.css';
 import Tags from './Tags';
+import img1 from '/public/images/bannar-1.jpeg';
+import img2 from '/public/images/bannar-2.jpeg';
 
 
 const Banner = ({ tags }) => {

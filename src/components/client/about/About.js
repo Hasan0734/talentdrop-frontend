@@ -6,7 +6,7 @@ const teams = [
     { id: 1, name: "Madeleine Nguyen", profession: "Co-Founder / CEO", img: "https://www.talentdrop.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmaddy.13bdfab7.jpeg&w=640&q=75" },
     { id: 2, name: "Janelle Tiulentino", profession: "Co-Founder / CTO", img: "https://www.talentdrop.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjanelle.fe61f4a0.jpeg&w=256&q=75" },
     { id: 3, name: "Grace Quigley", profession: "Ops Lead", img: "https://www.talentdrop.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgrace.474d6618.jpg&w=256&q=75" },
-    { id: 4, name: "Nick Starkey", profession: "Talent Partner", img: "https://www.talentdrop.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnick.9c7236b2.jpg&w=256&q=75" }
+    { id: 4, name: "Nick Starkey", profession: "Scouted Partner", img: "https://www.talentdrop.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnick.9c7236b2.jpg&w=256&q=75" }
 ]
 const About = () => {
     return (

@@ -16,21 +16,21 @@ const Activity = () => {
                     <p className={Styles.date}>1/31/22</p>
                     <p className={Styles.title}>Candidate Status:</p>
                     <button className={Styles.pass}>Pass</button>
-                    <p><small>by Talentdrop</small></p>
+                    <p><small>by Scouted</small></p>
                 </div>
 
                 <div className={Styles.activity__box}>
                     <p className={Styles.date}>1/31/22</p>
-                    <p className={Styles.title}>Talentdrop Recommendation:</p>
+                    <p className={Styles.title}>Scouted Recommendation:</p>
                     <button className={Styles.spam}>Spam</button>
-                    <p><small>by Talentdrop</small></p>
+                    <p><small>by Scouted</small></p>
                 </div>
 
                 <div className={Styles.activity__box}>
                     <p className={Styles.date}>1/31/22</p>
                     <p className={Styles.title}>Candidate Status:</p>
                     <button className={Styles.waiting}>Awaiting action</button>
-                    <p><small>by Talentdrop</small></p>
+                    <p><small>by Scouted</small></p>
                 </div>
             </div>
         </>

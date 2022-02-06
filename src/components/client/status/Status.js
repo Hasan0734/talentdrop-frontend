@@ -37,7 +37,7 @@ const Status = () => {
                                     </Link>
                                     <span> at </span>
                                     <Link href="/">
-                                        <a> Talentdrop</a>
+                                        <a> Scouted</a>
                                     </Link>
                                 </p>
                                 <div className="mt-5">

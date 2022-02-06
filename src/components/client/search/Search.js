@@ -14,7 +14,7 @@ const Search = ({ jobs }) => {
                 <section>
                     <div className={`${styles.toggle__container} container`}>
                         <div className="text-center mb-5">
-                            {/* <h1 className={styles.tag_title}>#{tagSlug} on Talentdrop</h1> */}
+                            {/* <h1 className={styles.tag_title}>#{tagSlug} on Scouted</h1> */}
                             {/* <p className={styles.tag_text}>Check out jobs tagged <span>{tagSlug}</span> here.</p> */}
                             {/* <h1><span>Searching: </span>
                                 <Link href={`/s/${title}`}>

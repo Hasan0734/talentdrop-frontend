@@ -54,7 +54,7 @@ const Refer = () => {
                 <div className="mt-5">
                     <div className="text-center py-5">
                         <h1 className={Styles.refer_title}>Refer Candidate</h1>
-                        <p className={Styles.refer_text}>You can make up to 20 referrals on Talentdrop.</p>
+                        <p className={Styles.refer_text}>You can make up to 20 referrals on Scouted.</p>
                         <p className={Styles.refer_text}>VIPs have unlimited referrals. <Link href="/"><a>Talk to us</a></Link> about becoming a VIP bounty hunter!</p>
                     </div>
                     <div className={Styles.refer_area}>
@@ -187,7 +187,7 @@ const Refer = () => {
                                     {errors.opportunities && <span className="text-danger">Required</span>}
                                 </div>
                                 <div className="mb-5">
-                                    <label className="mb-5">You attest to their knowledge of being referred to Talentdrop, or a Talentdrop partner company. We&apos;ll be checking in with them!     <span className="text-danger">*</span></label>
+                                    <label className="mb-5">You attest to their knowledge of being referred to Scouted, or a Scouted partner company. We&apos;ll be checking in with them!     <span className="text-danger">*</span></label>
 
                                     <select className="form-control" {...register("referring_company", { required: true })} >
                                         <option defaultValue  >Select...</option>

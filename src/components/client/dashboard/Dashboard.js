@@ -1,42 +1,8 @@
 import Link from 'next/link';
-import { useState } from 'react';
 import Layout from '../layout';
 import Styles from './Dashboard.module.css';
 const Dashboard = () => {
-    const [isTrue, setIstrue] = useState({
-        candidate: false,
-        talentdropRec: false,
-        status: false,
-        role: false,
-        submited: false
-    })
-    const [isTrueSecond, setIstrueSecond] = useState({
-        candidate: false,
-        talentdropRec: false,
-        status: false,
-        role: false,
-        submited: false
-    })
 
-    const selectedItem = (item) => {
-
-        setIstrue({
-            candidate: item === 'candidate' ? !isTrue.candidate : false,
-            talentdropRec: item === 'talentdropRec' ? !isTrue.talentdropRec : false,
-            status: item === 'status' ? !isTrue.status : false,
-            role: item === 'role' ? !isTrue.role : false,
-            submited: item === 'submited' ? !isTrue.submited : false,
-        })
-        setIstrueSecond({
-            candidate: item === 'candidate' && isTrue.candidate ? !isTrueSecond.candidate : false,
-            talentdropRec: item === 'talentdropRec' && isTrue.talentdropRec ? !isTrueSecond.talentdropRec : false,
-            status: item === 'status' && isTrue.status ? !isTrueSecond.status : false,
-            role: item === 'role' && isTrue.role ? !isTrueSecond.role : false,
-            submited: item === 'submited' && isTrue.submited ? !isTrueSecond.submited : false,
-        })
-
-
-    }
     return (
         <>
             <Layout>
@@ -50,7 +16,7 @@ const Dashboard = () => {
 
                                     <tr className=''>
                                         <th>Candidate</th>
-                                        <th className={Styles.table__header}>TALENTDROP REC</th>
+                                        <th className={Styles.table__header}>SCOUTED REC</th>
                                         <th className={Styles.table__header}>CANDIDATE STATUS</th>
                                         <th>ROLE</th>
                                         <th className={Styles.table__header}>SUBMITTED</th>
@@ -72,8 +38,8 @@ const Dashboard = () => {
                                             </Link>
                                             <p className='mt-1 mb-0'>
                                                 <img src="/images/logo.png" alt="" />
-                                                <Link href="/talentrop">
-                                                    <a className={Styles.company__name}>Talentdrop</a>
+                                                <Link href="/scouted">
+                                                    <a className={Styles.company__name}>Scouted</a>
                                                 </Link>
 
                                             </p>

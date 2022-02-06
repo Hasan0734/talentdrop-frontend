@@ -55,7 +55,6 @@ const Header = () => {
               <li className={styles.header__menu_li}>
                 <Link href="/">
                   <a
-
                     id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                   >
                     Start Here
@@ -110,7 +109,7 @@ const Header = () => {
           </nav>
           <div className="col-4">
             <div className={styles.user}>
-              <button onClick={() => router.push('/r/talentdrop/general-referral/refer')} className={`${styles.user__cta_button} primary__button`}>
+              <button onClick={() => router.push('/r/scouted/general-referral/refer')} className={`${styles.user__cta_button} primary__button`}>
                 General Referral
               </button>
               <div className={styles.user__avatar}>

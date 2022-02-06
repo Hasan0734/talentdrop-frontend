@@ -49,7 +49,7 @@ const Referral = () => {
                 <p className='mb-0'>How open to new opportunities are they?</p>
                 <p className='text-primary'>Not sure</p>
 
-                <p className='mb-0'>You attest to their knowledge of being referred to Talentdrop, or a Talentdrop partner company. We&apos;ll be checking in with them!</p>
+                <p className='mb-0'>You attest to their knowledge of being referred to Scouted, or a Scouted partner company. We&apos;ll be checking in with them!</p>
                 <p className='text-primary'>Yes</p>
 
                 <p className='mb-0'>How&apos;d you hear about us?</p>

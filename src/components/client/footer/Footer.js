@@ -18,11 +18,11 @@ export default function Footer() {
                   </a>
                 </Link>
               </div>
-              <p className={styles.footer__desc}>
+              {/* <p className={styles.footer__desc}>
                 There are many variations of passages of Lorem Ipsum available,
                 but themajority have suffered alteration in some form, by
                 injected humour
-              </p>
+              </p> */}
               <nav className={styles.footer__menu}>
                 <ul>
                   <li>
@@ -100,7 +100,8 @@ export default function Footer() {
                 </div>
               </div>
               <p className={styles.footer__copyright}>
-                2022 &copy; Crypto Market Cap &#38; Pricing Data Provided By Nomics
+
+                Copyright &copy; {new Date().getFullYear()} Scouted Ltd.
               </p>
             </div>
           </div>

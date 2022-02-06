@@ -80,10 +80,9 @@
   justify-content: space-between;
 }
 
-.card__location i {
-  color: var(--ligh-blue);
-  font-size: 1.2rem;
-  padding-right: 0.5rem;
+.card__location {
+  display: flex;
+  gap: 5px;
 }
 
 .card__location span {
@@ -102,4 +101,19 @@
   font-weight: 600;
   font-size: 1.3rem;
   text-transform: capitalize;
+}
+
+.card__tag {
+  color: var(--ligh-blue);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  background: #edf2f7;
+  padding: 3px 5px;
+  border-radius: 6px;
+
+}
+
+.card__tag a:hover {
+  text-decoration: underline !important;
 }

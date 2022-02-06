@@ -10,13 +10,13 @@ const Tag = ({ jobs }) => {
     return (
         <Layout>
             <Head>
-                <title>#{tagSlug} on Talentdrop</title>
+                <title>#{tagSlug} on Scouted</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <section>
                 <div className={`${styles.toggle__container} container`}>
                     <div className="text-center mb-5">
-                        <h1 className={styles.tag_title}>#{tagSlug} on Talentdrop</h1>
+                        <h1 className={styles.tag_title}>#{tagSlug} on Scouted</h1>
                         <p className={styles.tag_text}>Check out jobs tagged <span>{tagSlug}</span> here.</p>
                     </div>
                     <div className="row pt-5">

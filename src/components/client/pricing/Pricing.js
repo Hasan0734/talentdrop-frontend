@@ -42,7 +42,7 @@ const Pricing = () => {
                                 <div className='col-12 col-sm-6 mt-5'>
                                     <div className={styles.card__body}>
                                         <h2 className={styles.card__title}>General Candidates</h2>
-                                        <p>We&apos;re constantly in touch with great talent who might not be an exact match for a posted bounty, but who we think you'd want to meet anyway.</p>
+                                        <p>We&apos;re constantly in touch with great talent who might not be an exact match for a posted bounty, but who we think you&apos;d want to meet anyway.</p>
                                         <br />
                                         <p>If these general candidates turn into <b> a hire for one of your non-Talentdrop-posted roles </b>, we price using default bounties of:</p>
                                         <p><b>$15,000</b> for a technical or leadership (Head of, VP) role, and</p>

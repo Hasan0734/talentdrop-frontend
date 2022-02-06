@@ -11,7 +11,7 @@ const Employers = () => {
                     <div className={styles.employer__area}>
                         <div className="text-center mb-5">
                             <h1 className={styles.employer__title}>Hiring on Talentdrop</h1>
-                            <p className='text-center'>Talentdrop is a talent marketplace that matches talent to your company's needs, in exchange for a reward.</p>
+                            <p className='text-center'>Talentdrop is a talent marketplace that matches talent to your company&apos;s needs, in exchange for a reward.</p>
                         </div>
                         <ol>
                             <li>Tell us what roles you need help with.</li>

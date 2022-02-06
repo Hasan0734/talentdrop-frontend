@@ -101,7 +101,8 @@ export default function Footer() {
               </div>
               <p className={styles.footer__copyright}>
 
-                Copyright &copy; {new Date().getFullYear()} Scouted Ltd.
+                Copyright &copy; {new Date().getFullYear()} Scouted Ltd. All rights reserved.
+
               </p>
             </div>
           </div>

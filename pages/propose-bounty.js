@@ -4,7 +4,7 @@ import ProposeBounty from '../src/components/client/proposeBounty/proposeBounty'
 const index = () => {
     return (
         <>
-            <ProposeBounty />
+            <ProposeBounty></ProposeBounty>
         </>
     );
 };

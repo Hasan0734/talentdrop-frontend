@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import Layout from "../layout";
 import styles from './Employers.module.css';
 const Employers = () => {
+    const router = useRouter()
     return (
         <Layout>
             <section>
@@ -33,7 +35,7 @@ const Employers = () => {
                             </span>
                         </div>
                         <div className="text-center mt-5">
-                            <button className="btn btn-primary">Propose a Bounty</button>
+                            <button onClick={() => router.push('/propose-bounty')} className="btn btn-primary">Propose a Bounty</button>
 
                         </div>
                     </div>

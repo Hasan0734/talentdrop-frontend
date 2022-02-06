@@ -4,24 +4,29 @@
     margin-bottom: 4rem;
 }
 
-.privacy__area {
-    width: 850px;
+.contact__area {
+    width: 692px;
 }
 
-.privacy__area p {
+.contact__area form {
+    padding: 30px;
+    /* border-radius: 10px; */
+    /* border: 1px solid lightgray; */
+}
+
+.contact__area form label {
     font-size: 17px;
 }
 
-.privacy__title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1A202C;
-    margin-bottom: 20px;
-    text-decoration: underline;
+
+
+.contact__area ol li {
+    font-size: 17px;
+    line-height: 40px;
 }
 
-.privacy__date {
-    font-size: 1.2rem;
+.contact__title {
+    font-size: 2.5rem;
     font-weight: 700;
     color: #1A202C;
     text-align: center;
@@ -29,13 +34,13 @@
 }
 
 @media screen and (max-width: 576px) {
-    .privacy__area {
+    .contact__area {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 992px) {
-    .privacy__area {
+    .contact__area {
         width: 100%;
     }
 }

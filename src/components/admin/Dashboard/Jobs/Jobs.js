@@ -1,4 +1,5 @@
 import React from 'react';
+import JobsList from './JobsList';
 
 const Jobs = ({ jobs }) => {
     return (
@@ -26,13 +27,7 @@ const Jobs = ({ jobs }) => {
                         </div>
                     </div>
                     <div className="card-body pt-5" style={{ height: '400px', overflow: 'scroll' }}>
-                        {jobs.jobList?.map((job, i) => (
-                            <div key={i} className='d-flex justify-content-between align-items-center my-3'>
-                                <h4 style={{ width: '90px' }}>{job.job_title}</h4>
-                                <h6>USA</h6>
-                                <button className='btn btn-secondary'>Edit</button>
-                            </div>
-                        ))}
+                        {jobs.jobList?.map((job, i) => <JobsList key={i} job={job} />)}
                     </div>
                 </div>
             </div>

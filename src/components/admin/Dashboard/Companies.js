@@ -1,6 +1,8 @@
 import React from 'react';
+import CompaniesList from './CompaniesList';
 
 const Companies = ({ companies }) => {
+
     return (
         <>
             <div className="col-xxl-4 my-3">
@@ -27,13 +29,9 @@ const Companies = ({ companies }) => {
                         </div>
                     </div>
                     <div className="card-body pt-5" style={{ height: '400px', overflow: 'scroll' }}>
-                        {companies.companyList?.map((company, i) => (
-                            <div key={i} className='d-flex justify-content-between align-items-center my-3'>
-                                <h4 style={{ width: '200px' }}>{company.company_name}</h4>
-                                <h6>USA</h6>
-                                <button className='btn btn-secondary'>Edit</button>
-                            </div>
-                        ))}
+                        {companies.companyList?.map((company, i) => <CompaniesList key={i} company={company} />)}
+
+
                     </div>
                 </div>
             </div>

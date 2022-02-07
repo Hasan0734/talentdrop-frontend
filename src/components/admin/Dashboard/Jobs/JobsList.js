@@ -15,7 +15,7 @@ const JobsList = ({ job }) => {
     return (
         <>
             <div className='pe-auto border p-3 my-3 bg-danger rounded'>
-                <div onClick={() => setIsOpen(!isOpen)} className=" d-flex   rounded-2 justify-content-between align-items-center">
+                <div onClick={() => setIsOpen(!isOpen)} className=" d-flex   rounded-2 justify-content-between align-items-center" style={{ cursor: 'pointer' }}>
                     <h4 className="text-white">{job_title}</h4>
                     {isOpen ? <span ><i className="fas fa-minus text-white"></i></span>
                         : <span ><i className="fas fa-plus text-white"></i></span>}

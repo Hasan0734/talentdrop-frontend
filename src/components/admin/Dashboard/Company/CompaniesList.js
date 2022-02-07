@@ -14,7 +14,7 @@ const CompaniesList = ({ company }) => {
     return (
         <>
             <div className=' border p-3 my-3 bg-info rounded shadow-sm p-3 mb-5 '>
-                <div onClick={() => setIsOpen(!isOpen)} className=" d-flex  rounded-2 justify-content-between align-items-center">
+                <div onClick={() => setIsOpen(!isOpen)} className=" d-flex  rounded-2 justify-content-between align-items-center" style={{ cursor: 'pointer' }}>
                     <h4 className="text-white">{company_name}</h4>
                     {isOpen ? <span><i className="fas fa-minus text-white"></i></span>
                         : <span><i className="fas fa-plus text-white"></i></span>}

@@ -9,6 +9,7 @@ import styles from './Header.module.css';
 const Header = () => {
   const [start, setStart] = useState(false)
   const [status, setStatus] = useState(false)
+  const [smallDevice, setSmallDevice] = useState(false)
   const router = useRouter();
   const { users } = useSelector(state => state)
   const dispatch = useDispatch()
@@ -23,22 +24,10 @@ const Header = () => {
     dispatch(userLogout())
     router.push('/')
   }
-  // useEffect(() => {
-  //   const handleWindowClick = () => {
-  //     setStatus(false)
-  //     setStart(false)
-  //   }
-  //   if (status || start) {
-  //     window.addEventListener('click', handleWindowClick);
-  //   } else {
-  //     window.removeEventListener('click', handleWindowClick);
-  //   }
-  //   return () => window.removeEventListener('click', handleWindowClick);
-  // }, [start, setStart, status, setStatus])
-
 
   return (
     <header className={`${styles.header} navbar-expand-lg`}>
+
       <div className="container">
         <div className="row align-items-center">
           <div className="col-4">
@@ -130,10 +119,26 @@ const Header = () => {
                 }
               </div>
               <div className={styles.mobile__menu}>
-                <i className="fas fa-bars"></i>
+                <i onClick={() => setSmallDevice(!smallDevice)} className="fas fa-bars"></i>
               </div>
             </div>
           </div>
+
+          {/* small devices nav */}
+
+          {smallDevice && <nav className={styles.mobile__nav}>
+            <ul className={styles.nav__ul} >
+              <li className={styles.nav__title}>How it works</li>
+              <li><a className="" href="#">Referring of Scouted</a></li>
+              <li><a className="" href="#">Hiring of Scouted</a></li>
+            </ul>
+            <ul className={styles.nav__ul} >
+              <li className={styles.nav__title}>How it works</li>
+              <li><a className="" href="#">Referring of Scouted</a></li>
+              <li><a className="" href="#">Hiring of Scouted</a></li>
+            </ul>
+          </nav>}
+
         </div>
       </div>
     </header >

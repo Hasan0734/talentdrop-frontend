@@ -64,40 +64,40 @@ export default function Footer() {
               </nav>
               <div className={styles.footer__social}>
                 <div className={styles.footer__social_item}>
-                  <Link href="/">
+                  <Link href="https://www.facebook.com/careerbuddyafrica">
                     <a>
                       <i className="fab fa-facebook-f"></i>
                     </a>
                   </Link>
                 </div>
                 <div className={styles.footer__social_item}>
-                  <Link href="/">
+                  <Link href="https://twitter.com/careerbuddyhq">
                     <a>
                       <i className="fab fa-twitter"></i>
                     </a>
                   </Link>
                 </div>
                 <div className={styles.footer__social_item}>
-                  <Link href="/">
+                  <Link href="https://www.instagram.com/careerbuddyhq/">
                     <a>
                       <i className="fab fa-instagram"></i>
                     </a>
                   </Link>
                 </div>
                 <div className={styles.footer__social_item}>
-                  <Link href="/">
+                  <Link href="https://www.linkedin.com/company/thecareerbuddy/?viewAsMember=true">
                     <a>
                       <i className="fab fa-linkedin-in"></i>
                     </a>
                   </Link>
                 </div>
-                <div className={styles.footer__social_item}>
+                {/* <div className={styles.footer__social_item}>
                   <Link href="/">
                     <a>
                       <i className="fab fa-google-plus-g"></i>
                     </a>
                   </Link>
-                </div>
+                </div> */}
               </div>
               <p className={styles.footer__copyright}>
 

@@ -19,7 +19,7 @@
 
 .header__menu_li a {
   color: var(--font-color-1);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 2rem;
   text-transform: capitalize;
 }
@@ -50,7 +50,7 @@
 .user__avatar ul {
   min-width: 200px;
   padding: 10px;
-  transform: translate(1528px, 98px) !important;
+  /* transform: translate(1528px, 98px) !important; */
 }
 
 .user__avatar ul li {
@@ -97,6 +97,25 @@
   font-size: 2rem;
   cursor: pointer;
   color: var(--font-color-1);
+}
+
+
+
+
+.mobile__nav .nav__ul {
+  list-style: none;
+}
+
+.mobile__nav .nav__title {
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 14px;
+}
+
+.mobile__nav .nav__ul li a {
+  font-size: 14px;
+  margin-left: 14px;
+  color: black;
 }
 
 @media screen and (min-width: 992px) {

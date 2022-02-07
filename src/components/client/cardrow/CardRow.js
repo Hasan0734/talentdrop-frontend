@@ -5,7 +5,8 @@ import styles from './CardRow.module.css';
 import defaultLogo from '/public/images/default-logo.png';
 
 export default function CardRow({ job }) {
-  const { job_title, job_bounty, job_slug, company } = job
+  console.log(job)
+  const { job_title, job_bounty, job_slug, company, state } = job
   const { company_logo, company_name, company_slug } = company
   const router = useRouter()
   return (
@@ -39,7 +40,7 @@ export default function CardRow({ job }) {
               </p>
 
             ))}
-            <p className={styles.card__location}>📍CA, USA</p>
+            <p className={styles.card__location}><Link href={`/search?location=${state?.state_name}`}><a>📍{state?.state_name}</a></Link></p>
           </div>
           <p className={styles.card__condition}>New</p>
           <p className={styles.card__price}>{`$${job_bounty}`}</p>

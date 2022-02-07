@@ -5,7 +5,7 @@ import styles from './Card.module.css';
 import defaultLogo from '/public/images/default-logo.png';
 
 export default function CardGrid({ job }) {
-  const { job_title, job_salary, job_slug, job_bounty, company } = job
+  const { job_title, job_salary, job_slug, job_bounty, company, state } = job
   const { company_logo, company_name, company_slug } = company
   const router = useRouter()
   return (
@@ -41,7 +41,7 @@ export default function CardGrid({ job }) {
             </p>
 
           ))}
-          <span>📍CA, USA</span>
+          <span><Link href={`/search?location=${state?.state_name}`}><a >📍{state?.state_name}</a></Link></span>
 
         </div>
       </div>

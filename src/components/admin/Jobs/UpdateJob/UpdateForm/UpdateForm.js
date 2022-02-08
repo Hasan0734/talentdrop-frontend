@@ -1,17 +1,18 @@
 
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { BeatLoader } from 'react-spinners';
 import { setTags } from '../../../../../../store/tags/actions';
-import { getData } from './../../../../../../__lib__/helpers/HttpService';
-import stylesClass from './JobForm.module.css';
+import { getData, postData } from '../../../../../../__lib__/helpers/HttpService';
+import stylesClass from './UpdateForm.module.css';
 
 
 
 
-const JobForm = () => {
+const UpdateForm = () => {
     const [disable, setDisable] = useState(false)
     const [loading, setLoading] = useState(true);
     const [color, setColor] = useState("#ffffff");
@@ -26,8 +27,7 @@ const JobForm = () => {
     const [countries, setCountries] = useState([])
     const [states, setStates] = useState([])
     const [timezones, setTimezones] = useState([])
-
-
+    const router = useRouter()
 
     useEffect(() => {
         dispatch(setTags())
@@ -103,7 +103,9 @@ const JobForm = () => {
         setSelectTags(e)
     }
 
+    // const { company_id, company, job_title, job_salary, job_description, job_vacancy, job_bounty, country_id, state_id, timezone_id } = router.query
 
+    console.log(router.query)
     const handleSubmit = (e) => {
         e.preventDefault()
         setDisable(true)
@@ -405,4 +407,4 @@ const JobForm = () => {
     );
 };
 
-export default JobForm;
+export default UpdateForm;

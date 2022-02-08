@@ -40,9 +40,8 @@ const MessageCard = ({ messages }) => {
                                     </span>
                                     <div className="flex-grow-1 me-2">
                                         <span className="fw-bolder text-gray-800 text-hover-primary fs-6">
-                                            {name} 	&nbsp;
-                                            {showMessage ? <i className="fas fa-angle-up"></i>
-                                                : <i className="fas fa-angle-down"></i>}
+                                            {name}
+
 
 
                                         </span>
@@ -55,7 +54,7 @@ const MessageCard = ({ messages }) => {
                                     <i onClick={deleteMessage} className="fas fa-trash" style={{ cursor: 'pointer' }}></i>
                                 </span>
                             </div>
-                            <div className={showMessage ? 'd-block' : 'd-none'}>
+                            <div>
                                 <p>{message}</p>
                             </div>
                         </div>

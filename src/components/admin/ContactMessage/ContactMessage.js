@@ -16,18 +16,21 @@ const ContactMessage = () => {
         dispatch(setMessages())
         setIsLoading(false)
     }, [])
-    console.log(messages.isLoading === messages.messageList !== null)
+    // console.log(messages.isLoading === messages.messageList !== null)
+    console.log(messages)
     return (
         <>
             <Layout>
 
                 <div className=" container p-5">
-
-                    {messages.isLoading && messages.messageList !== null && <ScaleLoader color={color} loading={loading} size={12} />}
+                    <div className='d-flex justify-content-center'>
+                        {isLoading && <ScaleLoader color={color} loading={loading} size={12} />}
+                    </div>
                     <div className='row gy-5 g-xl-8'>
-
                         {!messages.isLoading && messages.messageList?.map((message, i) => <MessageCard key={i} messages={message} />)}
-                        {!messages.isLoading && messages.messageList?.length === 0 && <div><h1>No Message</h1></div>}
+                        {messages.messageList?.length === 0 && <div>
+                            <h1 className='text-center'>No Message</h1>
+                        </div>}
 
                     </div>
 

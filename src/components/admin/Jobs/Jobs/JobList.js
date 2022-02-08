@@ -1,12 +1,10 @@
 
-import { useRouter } from 'next/router';
 import { useState } from 'react';
-import CompanyDesc from './CompanyDesc';
+import JobDesc from './JobDesc';
 
-const CompanyList = ({ company }) => {
-    const { company_name, company_slug, id, country } = company
+const JobList = ({ job }) => {
+    const { job_title, job_slug, company } = job
     const [isOpen, setIsOpen] = useState(false)
-    const router = useRouter()
 
     return (
         <>
@@ -17,10 +15,10 @@ const CompanyList = ({ company }) => {
                         <i className="fas fa-angle-down"></i>
                     </button>
                 </td>
-                <td className="ps-0">{company_name}</td>
-                <td>{country?.country_name}</td>
+                <td className="ps-0">{job_title}</td>
+                <td>{company?.company_name}</td>
                 <td className="text-end">
-                    <button onClick={() => router.push({ pathname: `/admin/company/${company_slug}/update`, query: company })} className="btn btn-light-danger btn-sm btn-active-light-primary">
+                    <button onClick={() => router.push({ pathname: `/admin/job/${company?.company_slug}/${job_slug}/update`, query: job })} className="btn btn-light-danger btn-sm btn-active-light-primary">
                         <i className="far fa-edit"></i>
                     </button>
                 </td>
@@ -29,10 +27,10 @@ const CompanyList = ({ company }) => {
 
             <tr >
 
-                {isOpen && <CompanyDesc company={company} />}
+                {isOpen && <JobDesc job={job} />}
             </tr>
         </>
     );
 };
 
-export default CompanyList;
+export default JobList;

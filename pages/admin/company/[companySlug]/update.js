@@ -13,7 +13,10 @@ const update = () => {
 export default update;
 
 export const getServerSideProps = adminAuth(context => {
+
     return {
         props: {}
+
+
     }
 })

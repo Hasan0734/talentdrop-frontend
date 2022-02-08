@@ -28,7 +28,7 @@ const JobsList = ({ job }) => {
                         </div>
                         <h6 className="">Salary: ${jobDesc.job_salary}</h6>
                         <h6 className="">Vacancy: {jobDesc.job_vacancy}</h6>
-                        <h6 className="">Bounty: {jobDesc.job_bounty}</h6>
+                        <h6 className="">Bounty: ${jobDesc.job_bounty}</h6>
 
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 import { getData, postData } from '../../../../../../__lib__/helpers/HttpService';
@@ -13,8 +14,13 @@ const UpdateForm = () => {
     const [states, setStates] = useState([])
     const [timezones, setTimezones] = useState([])
     const { admins } = useSelector(state => state)
-    const { register, watch, handleSubmit, formState: { errors }, reset } = useForm()
 
+    const { register, watch, handleSubmit, formState: { errors }, reset } = useForm()
+    const router = useRouter()
+    const { id, company_name, company_description, facebook_url, twitter_url, website_url, employee_number, timezone_id, country_id, state_id, linkedin_url, image, instagram_url, founded_date } = router.query
+    console.log(founded_date)
+
+    // console.log(dateFormat("24/5/21", "isoDate"))
 
     useEffect(() => {
         allCountry()
@@ -51,6 +57,7 @@ const UpdateForm = () => {
                 }
             })
     }
+
     const onSubmit = async data => {
 
         setDisable(true)
@@ -66,7 +73,7 @@ const UpdateForm = () => {
         formData.append('state_id', data.state_id)
         formData.append('facebook_url', data.facebook_url)
         formData.append('twitter_url', data.twitter_url)
-        formData.append('linkdin_url', data.linkdin_url)
+        formData.append('linkedin_url', data.linkedin_url)
         formData.append('instagram_url', data.instagram_url)
         formData.append('image', data.company_logo[0])
         await submitData(formData)
@@ -95,7 +102,10 @@ const UpdateForm = () => {
 
     return (
         <>
-
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                     <div className='row'>
@@ -108,6 +118,7 @@ const UpdateForm = () => {
                                         <i className="fa fa-building"></i>
                                     </span>
                                     <input
+                                        defaultValue={company_name}
                                         {...register("company_name",
                                             {
                                                 required: true
@@ -143,6 +154,7 @@ const UpdateForm = () => {
                         <div className="mb-3 col-12 col-sm-6 position-relative" >
                             <label>Company Description</label>
                             <textarea
+                                defaultValue={company_description}
                                 // minLength='100'
                                 maxLength="250"
                                 required
@@ -171,6 +183,7 @@ const UpdateForm = () => {
                                     <i className="fas fa-globe"></i>
                                 </span>
                                 <input
+                                    defaultValue={website_url}
                                     {...register("website_url",
                                         {
                                             required: true, pattern: /^(ftp|http|https):\/\/[^ "]+$/
@@ -192,6 +205,7 @@ const UpdateForm = () => {
                                     <i className="fas fa-user"></i>
                                 </span>
                                 <input
+                                    defaultValue={employee_number}
                                     {...register("employee_number",
                                         {
                                             required: true
@@ -215,6 +229,8 @@ const UpdateForm = () => {
                                     <i className="fas fa-calendar-alt"></i>
                                 </span>
                                 <input
+                                    // defaultValue={founded_date}
+
                                     {...register("founded_date",
                                         {
                                             required: true
@@ -327,6 +343,7 @@ const UpdateForm = () => {
                                     <i className="fab fa-facebook-square"></i>
                                 </span>
                                 <input
+                                    defaultValue={facebook_url}
                                     {...register("facebook_url",
                                         {
                                             required: true, pattern: /^(ftp|http|https):\/\/[^ "]+$/
@@ -348,6 +365,7 @@ const UpdateForm = () => {
                                     <i className="fab fa-twitter-square"></i>
                                 </span>
                                 <input
+                                    defaultValue={twitter_url}
                                     {...register("twitter_url",
                                         {
                                             required: true, pattern: /^(ftp|http|https):\/\/[^ "]+$/
@@ -369,6 +387,7 @@ const UpdateForm = () => {
                                     <i className="fab fa-linkedin"></i>
                                 </span>
                                 <input
+                                    defaultValue={linkedin_url}
                                     {...register("linkedin_url",
                                         {
                                             required: true, pattern: /^(ftp|http|https):\/\/[^ "]+$/
@@ -384,12 +403,13 @@ const UpdateForm = () => {
 
                         </div>
                         <div className="mb-3 col-12 col-sm-6">
-                            <label>Instagram (Optional)</label>
+                            <label>Instagram</label>
                             <div>
                                 <span style={styles}>
                                     <i className="fab fa-instagram-square"></i>
                                 </span>
                                 <input
+                                    defaultValue={instagram_url}
                                     {...register("instagram_url",
                                         {
                                             pattern: /^(ftp|http|https):\/\/[^ "]+$/

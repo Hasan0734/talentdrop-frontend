@@ -32,7 +32,6 @@ const Refer = () => {
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         setDisable(true)
         postData(`/refer/${job.id}`, data, setDisable)
             .then(res => {
@@ -42,7 +41,6 @@ const Refer = () => {
                     reset()
                 } else {
                     toast.error(res.message)
-                    console.log(res)
                 }
             })
     };

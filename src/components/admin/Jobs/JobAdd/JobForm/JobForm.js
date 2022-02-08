@@ -121,12 +121,10 @@ const JobForm = () => {
 
         for (let i = 0; i < selectTags?.length; i++) {
             formData.append('tags[]', selectTags[i].value)
-            console.log(selectTags[i].value)
         }
 
         postData('/job', formData, setDisable)
             .then(res => {
-                console.log(res)
                 if (res.success) {
                     toast.success(res.message)
                     setDisable(false)

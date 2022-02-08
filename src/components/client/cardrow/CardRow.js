@@ -5,7 +5,6 @@ import styles from './CardRow.module.css';
 import defaultLogo from '/public/images/default-logo.png';
 
 export default function CardRow({ job }) {
-  console.log(job)
   const { job_title, job_bounty, job_slug, company, state } = job
   const { company_logo, company_name, company_slug } = company
   const router = useRouter()

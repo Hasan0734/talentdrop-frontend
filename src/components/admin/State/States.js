@@ -22,11 +22,9 @@ const States = () => {
     const { statesList } = states
     const { countryList } = countries
     const handleOnChange = (e) => {
-        console.log(e.target.value)
         setSelectCountry(e.target.value)
     }
 
-    console.log(states)
 
     const courrentUpdate = (data) => {
         setTrigger(false)

@@ -2,7 +2,7 @@
 import Search from '../../src/components/client/search/Search';
 import { getData } from './../../__lib__/helpers/HttpService';
 const index = ({ jobs }) => {
-    // console.log(jobs)
+
     return (
         <>
             <Search jobs={jobs} />

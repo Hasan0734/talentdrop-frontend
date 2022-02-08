@@ -22,7 +22,6 @@ const Timezones = () => {
     const { zonesList } = timezones
     const { countryList } = countries
     const handleOnChange = (e) => {
-        console.log(e.target.value)
         setSelectCountry(e.target.value)
     }
 

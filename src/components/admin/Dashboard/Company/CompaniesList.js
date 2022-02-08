@@ -6,7 +6,7 @@ const CompaniesList = ({ company }) => {
     const { company_name, country, state } = company
     const [jobs, setJobs] = useState([])
     const [isOpen, setIsOpen] = useState(false)
-    console.log(company)
+
     useEffect(() => {
         getData(`/jobs/company/${company_name}`)
             .then(res => setJobs(res))

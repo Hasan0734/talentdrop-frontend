@@ -6,12 +6,12 @@ const JobsList = ({ job }) => {
     const { job_title, id } = job
     const [jobDesc, setJobDesc] = useState([])
     const [isOpen, setIsOpen] = useState(false)
-    console.log(job)
+
     useEffect(() => {
         getData(`/job/${id}`)
             .then(res => setJobDesc(res))
     }, [id])
-    console.log(jobDesc)
+
     return (
         <>
             <div className='pe-auto border p-3 my-3 bg-danger rounded'>

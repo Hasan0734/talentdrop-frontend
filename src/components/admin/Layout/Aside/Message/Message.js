@@ -33,7 +33,7 @@ const Message = () => {
                                 <span className="menu-bullet">
                                     <span className="bullet bullet-dot" />
                                 </span>
-                                <span className="menu-title">All Messages</span>
+                                <span className="menu-title">inbox</span>
                             </a>
                         </Link>
                     </div>

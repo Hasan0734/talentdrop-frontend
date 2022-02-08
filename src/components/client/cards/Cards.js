@@ -6,7 +6,6 @@ import styles from './Cards.module.css';
 export default function Cards({ jobs, generalJob }) {
   const [toggle, setToggle] = useState({ isGrid: false, isRow: true })
   const filterJob = jobs.filter(job => job.id !== generalJob.id)
-  // console.log(filterJob)
   return (
     <section className={styles.cards__section}>
       <div className={`${styles.toggle__container} container`}>

@@ -7,7 +7,7 @@ const ProposeBounty = () => {
     const [check, setCheck] = useState(false)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
     };
     return (
         <Layout>

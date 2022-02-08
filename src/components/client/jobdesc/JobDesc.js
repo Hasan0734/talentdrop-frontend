@@ -6,7 +6,6 @@ import JobDescription from './JobDescription';
 import JobInformation from './JobInformation';
 
 export default function JobDesc({ jobDetail }) {
-  // console.log(jobDetail)
 
   return (
     <Layout>

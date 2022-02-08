@@ -38,14 +38,11 @@ export default function Signup() {
   const [disable, setDisable] = useState(false)
   const router = useRouter()
   const { register, handleSubmit, watch, formState: { errors } } = useForm(formOptions);
-  console.log(errors)
   const onSubmit = data => {
-    console.log(data)
     setDisable(true)
 
     postData('/user/register', data, setDisable)
       .then(res => {
-        console.log(res)
         if (res?.user) {
           cookies.set("user_token", res.token, { path: '/' })
           toast.success(res.message)

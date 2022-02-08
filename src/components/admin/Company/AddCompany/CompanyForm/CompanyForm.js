@@ -52,7 +52,7 @@ const CompanyForm = () => {
             })
     }
     const onSubmit = async data => {
-        console.log(data)
+
         setDisable(true)
         const formData = new FormData()
 
@@ -238,7 +238,7 @@ const CompanyForm = () => {
                                 </span>
                                 <select
 
-                                    onChange={e => console.log(e)}
+
                                     required
                                     {...register("country_id",
                                         {

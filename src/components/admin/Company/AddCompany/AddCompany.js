@@ -14,7 +14,7 @@ const AddCompanies = () => {
 
                             </div>
                             {/* <img src={companiesIcon} alt="" /> */}
-                            <h1 style={{ marginTop: '15px' }}>Add Company</h1>
+                            <h1 style={{ marginTop: '15px' }}>Update Company</h1>
                         </div>
 
                         <div className="p-5" style={{ marginTop: '30px' }}>

@@ -4,8 +4,8 @@ const Logo = () => {
         <>
             <div className="aside-logo flex-column-auto" id="kt_aside_logo">
                 <Link href="/">
-                    <a>
-                        {/* <img alt="Logo" src="assets/media/logos/logo-1.svg" className="h-15px logo" /> */}
+                    <a className="d-flex gap-3">
+                        <img alt="Logo" src="/images/logo.png" className="h-15px logo" />
                         <h2>Scouted</h2>
                     </a>
                 </Link>

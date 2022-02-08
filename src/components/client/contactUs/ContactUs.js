@@ -9,7 +9,7 @@ import styles from './ContactUs.module.css';
 const ContactUs = () => {
     const [loading, setLoading] = useState(true);
     const [color, setColor] = useState("#ffffff");
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [disable, setDisable] = useState(false)
     const onSubmit = data => {
         setDisable(true)
@@ -17,6 +17,7 @@ const ContactUs = () => {
             .then(res => {
                 if (res.success) {
                     toast.success(res.message)
+                    reset()
                 }
             })
     };

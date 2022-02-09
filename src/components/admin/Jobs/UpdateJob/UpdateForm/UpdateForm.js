@@ -297,7 +297,7 @@ const UpdateForm = () => {
                         <div className="mb-3  col-12 col-sm-6">
                             <label>Select Tags <span className='text-danger'>*</span></label>
                             <br />
-                            <label > Previous: {previousTags?.map((item, i) => <span className='pe-2' key={item.id}>{item.tag_name}</span>)}</label>
+                            <label > Previous: {previousTags?.map((item, i) => <span className='p-1 mx-2 rounded bg-light-success' key={item.id}>{item.tag_name}</span>)}</label>
                             <div>
 
                                 <Select

@@ -29,15 +29,12 @@ const UpdateForm = () => {
     const [timezones, setTimezones] = useState([])
     const [moreData, setMoreData] = useState()
     const router = useRouter()
-    const { id, job_title, job_salary, job_description, job_vacancy, job_bounty, country_id, state_id, timezone_id } = router.query
+
+    const {job, referars, country, company, state, previousTags, timezone} = JSON.parse(router.query.nested)
 
 
 
     useEffect(() => {
-        getData(`/job/${id}`)
-            .then(res => {
-                setMoreData(res)
-            })
         dispatch(setTags())
         getData('/companies')
             .then(res => {
@@ -48,7 +45,7 @@ const UpdateForm = () => {
         allCountry();
         allState();
         allTimezone()
-    }, [handleFormData.country_id, country_id, id, state_id])
+    }, [handleFormData.country_id])
 
     const handleForm = (e) => {
         const name = e.target.name
@@ -66,7 +63,7 @@ const UpdateForm = () => {
             })
     }
     const allState = () => {
-        getData(`/states/${handleFormData.country_id || country_id}`)
+        getData(`/states/${handleFormData.country_id}`)
             .then(res => {
                 if (res) {
                     setStates(res)
@@ -74,7 +71,7 @@ const UpdateForm = () => {
             })
     }
     const allTimezone = () => {
-        getData(`/timezones/${handleFormData.country_id || country_id}`)
+        getData(`/timezones/${handleFormData.country_id}`)
             .then(res => {
                 if (res) {
                     setTimezones(res)
@@ -104,12 +101,6 @@ const UpdateForm = () => {
     const handleSelectTags = (e) => {
         setSelectTags(e)
     }
-    const countryInfo = countries.find(item => item.id === parseInt(country_id))
-    const stateInfo = states.find(item => item.id === parseInt(state_id))
-    const timezoneInfo = timezones.find(item => item.id === parseInt(timezone_id))
-
-    // console.log(states)
-
     const handleSubmit = (e) => {
         e.preventDefault()
         setDisable(true)
@@ -144,8 +135,6 @@ const UpdateForm = () => {
         value: tag.id
     }));
 
-
-
     const styles = {
         position: 'absolute',
         marginTop: '12px',
@@ -168,7 +157,7 @@ const UpdateForm = () => {
                                             <i className="fas fa-search"></i>
                                         </span>
                                         <input
-                                            defaultValue={moreData?.company?.company_name}
+                                            defaultValue={company?.company_name}
                                             required
                                             onChange={searchCompanies}
                                             className="form-control"
@@ -201,7 +190,7 @@ const UpdateForm = () => {
                                             disabled
                                             className="form-control"
                                             placeholder="Name here"
-                                            defaultValue={search.company_name || moreData?.company?.company_name}
+                                            defaultValue={search.company_name || company?.company_name}
                                         />
 
                                     </div>
@@ -217,7 +206,7 @@ const UpdateForm = () => {
                                     <i className="fas fa-pen"></i>
                                 </span>
                                 <input
-                                    defaultValue={job_title}
+                                    defaultValue={job?.job_title}
                                     required
                                     name="job_title"
                                     onChange={handleForm}
@@ -236,7 +225,7 @@ const UpdateForm = () => {
                                         <i className="fas fa-money-check"></i>
                                     </span>
                                     <input
-                                        defaultValue={job_salary}
+                                        defaultValue={job?.job_salary}
                                         required
                                         name="job_salary"
                                         onChange={handleForm}
@@ -255,7 +244,7 @@ const UpdateForm = () => {
                                         <i className="fas fa-users"></i>
                                     </span>
                                     <input
-                                        defaultValue={job_vacancy}
+                                        defaultValue={job?.job_vacancy}
                                         required
                                         name="job_vacancy"
                                         onChange={handleForm}
@@ -274,7 +263,7 @@ const UpdateForm = () => {
                                         <i className="fas fa-hand-holding-usd"></i>
                                     </span>
                                     <input
-                                        defaultValue={job_bounty}
+                                        defaultValue={job?.job_bounty}
                                         required
                                         onChange={handleForm}
                                         name="job_bounty"
@@ -290,7 +279,7 @@ const UpdateForm = () => {
                             <label>Job Description <span className='text-danger'>*</span></label>
                             <textarea
                                 // minLength='100'
-                                defaultValue={job_description}
+                                defaultValue={job?.job_description}
                                 onChange={handleForm}
                                 name="job_description"
                                 maxLength="250"
@@ -308,7 +297,7 @@ const UpdateForm = () => {
                         <div className="mb-3  col-12 col-sm-6">
                             <label>Select Tags <span className='text-danger'>*</span></label>
                             <br />
-                            <label > Previous: {moreData?.tags.map((item, i) => <span className='pe-2' key={item.id}>{item.tag_name}</span>)}</label>
+                            <label > Previous: {previousTags?.map((item, i) => <span className='pe-2' key={item.id}>{item.tag_name}</span>)}</label>
                             <div>
 
                                 <Select
@@ -325,7 +314,7 @@ const UpdateForm = () => {
                         <div className='"mb-3  col-12 col-sm-6'>
                             <label>Country <span className='text-danger'>*</span></label>
                             <br />
-                            <label > Previous: {countryInfo?.country_name}</label>
+                            <label > Previous: {country?.country_name}</label>
 
                             <div>
                                 <span style={styles}>
@@ -354,8 +343,8 @@ const UpdateForm = () => {
                         <div className='mb-3 col-12 col-sm-6'>
                             <label>State <span className='text-danger'>*</span></label>
                             <br />
-                            <label > Previous: {stateInfo?.state_name}</label>
-
+                            <label > Previous: {state?.state_name}</label>
+                                
                             <div>
                                 <span style={styles}>
                                     <i className="fas fa-map-marker"></i>
@@ -383,7 +372,7 @@ const UpdateForm = () => {
 
                             <label>Time Zone <span className='text-danger'>*</span></label>
                             <br />
-                            <label > Previous: {timezoneInfo?._zone_name_}</label>
+                            <label > Previous: {timezone?._zone_name_}</label>
 
                             <div>
                                 <span style={styles}>

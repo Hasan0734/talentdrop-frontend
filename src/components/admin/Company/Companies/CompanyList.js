@@ -8,27 +8,16 @@ const CompanyList = ({ company }) => {
     const { company_name, company_slug, id, country, state, timezone } = company
     const [isOpen, setIsOpen] = useState(false)
     const router = useRouter()
-    const companyQuery = queryString.stringify(company, { sort: false })
-    const countryQuery = queryString.stringify(country, { sort: false })
-    const stateQuery = queryString.stringify(state, { sort: false })
-    const timezoneQuery = queryString.stringify(timezone, { sort: false })
 
-    // const mainQuery = queryString.stringify(companyQuery, countryQuery, timezoneQuery, { sort: false });
-    // console.log(countryQuery)
-    // console.log(stateQuery)
-    // console.log(timezoneQuery)
-    // console.log(companyQuery)
-    // console.log(mainQuery)
-    // const parser = queryString.parse(mainQuery);
-    // console.log(parser)
 
-    const newSystem = queryString.stringify({
+
+    const newQuery = queryString.stringify({
 
         nested: JSON.stringify({
             company: company,
             country: country,
             state: state,
-            timezone, timezone
+            timezone: timezone,
         })
     });
     // const parsed = queryString.parse(newSystem)
@@ -46,7 +35,7 @@ const CompanyList = ({ company }) => {
                 <td className="ps-0">{company_name}</td>
                 <td>{country?.country_name}</td>
                 <td className="text-end">
-                    <button onClick={() => router.push({ pathname: `/admin/company/${company?.company_slug}/update`, query: newSystem })}
+                    <button onClick={() => router.push({ pathname: `/admin/company/${company?.company_slug}/update`, query: newQuery })}
 
                         className="btn btn-light-danger btn-sm btn-active-light-primary">
                         <i className="far fa-edit"></i>

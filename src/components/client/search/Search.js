@@ -35,7 +35,7 @@ const Search = ({ jobs }) => {
                                     <div className='row d-flex justify-content-center'>
                                         <div className='col-4'>
                                             <div className='d-flex justify-content-center'>
-                                                <svg style={{ width: '300px' }} viewBox="0 0 250 250" classname="SVG-wlnxuy-0 cnIZnY">
+                                                <svg style={{ width: '300px' }} viewBox="0 0 250 250" className="SVG-wlnxuy-0 cnIZnY">
                                                     <g fill="none" fillrule="evenodd">
                                                         <ellipse fillopacity=".059" fill="#000" cx={123} cy={217} rx={60} ry={7} />
                                                         <g transform="translate(39.35 46.809)">

@@ -1,11 +1,17 @@
 
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import JobDesc from './JobDesc';
 
 const JobList = ({ job }) => {
-    const { job_title, job_slug, company } = job
+    const queryString = require('query-string');
+    const query = queryString.stringify(job.tags, { arrayFormat: 'bracket-separator', arrayFormatSeparator: '|' })
+    console.log(query)
+    // console.log(queryString.parse(query, { arrayFormat: 'comma' }))
+    const { job_title, job_slug, company, tags } = job
+    console.log(tags)
     const [isOpen, setIsOpen] = useState(false)
-
+    const router = useRouter()
     return (
         <>
             <tr className=''>

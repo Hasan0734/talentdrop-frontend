@@ -27,10 +27,10 @@ const MessageCard = ({ messages }) => {
                 position="top-center"
                 reverseOrder={false}
             />
-            <div className="col-xl-3 col-md-4">
-                <div className="card  mb-xl-8">
-                    <div className='card-body rounded p-5' >
-                        <div className=" bg-light-info rounded p-5">
+            <div className="col-xl-4 col-md-6">
+                <div className="card card-xl-stretch mb-xl-8" >
+                    <div className='card-body rounded p-5'  >
+                        <div className=" bg-light-info rounded p-5" style={{ height: '225px' }}>
                             <div className='d-flex justify-content-between align-items-center'>
                                 <div onClick={() => setShowMessage(!showMessage)} className='d-flex align-items-center' style={{ cursor: 'pointer' }}>
                                     <span className="svg-icon svg-icon-success me-5">

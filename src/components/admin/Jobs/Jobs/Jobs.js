@@ -23,7 +23,7 @@ const Jobs = () => {
 
             <div className="bg-white container p-5">
                 <div className="d-flex justify-content-between py-5 ">
-                    <h1 className="mt-3">Jobs</h1>
+                    <h1 className="mt-3">Jobs: {jobList.length}</h1>
                     <Link href="/admin/add-company">
                         <a>
                             <button onClick={() => {

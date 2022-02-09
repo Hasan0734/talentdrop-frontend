@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 import { getData, postData } from '../../../../../../__lib__/helpers/HttpService';
 const UpdateForm = () => {
+    const queryString = require('query-string');
     const [disable, setDisable] = useState(false)
     const [loading, setLoading] = useState(true);
     const [color, setColor] = useState("#ffffff");
@@ -18,7 +19,10 @@ const UpdateForm = () => {
     const { register, watch, handleSubmit, formState: { errors }, reset } = useForm()
     const router = useRouter()
     const { id, company_name, company_description, facebook_url, twitter_url, website_url, employee_number, timezone_id, country_id, state_id, linkedin_url, image, instagram_url, founded_date } = router.query
-    console.log(founded_date)
+
+    console.log(router.query)
+
+    // console.log(queryString.parse(router.query))
 
     // console.log(dateFormat("24/5/21", "isoDate"))
 
@@ -247,14 +251,13 @@ const UpdateForm = () => {
                         </div>
                         <div className="mb-3 col-12 col-sm-6">
                             <label>Country</label>
-
+                            <br />
+                            <span>Previous:</span>
                             <div>
                                 <span style={styles}>
                                     <i className="fas fa-flag"></i>
                                 </span>
                                 <select
-
-
                                     required
                                     {...register("country_id",
                                         {
@@ -278,7 +281,8 @@ const UpdateForm = () => {
                         </div>
                         <div className="mb-3 col-12 col-sm-6">
                             <label>State</label>
-
+                            <br />
+                            <span>Previous:</span>
                             <div>
                                 <span style={styles}>
                                     <i className="fas fa-map-marker"></i>

@@ -16,7 +16,7 @@ export async function getServerSideProps(context) {
     const { location } = context.query
 
     const res = await getData(`/jobs/state/${location}`)
-
+    
     return {
         props: {
             jobs: res

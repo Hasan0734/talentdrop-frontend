@@ -27,9 +27,17 @@ const UpdateForm = () => {
     const [countries, setCountries] = useState([])
     const [states, setStates] = useState([])
     const [timezones, setTimezones] = useState([])
+    const [moreData, setMoreData] = useState()
     const router = useRouter()
+    const { id, job_title, job_salary, job_description, job_vacancy, job_bounty, country_id, state_id, timezone_id } = router.query
+
+
 
     useEffect(() => {
+        getData(`/job/${id}`)
+            .then(res => {
+                setMoreData(res)
+            })
         dispatch(setTags())
         getData('/companies')
             .then(res => {
@@ -40,19 +48,14 @@ const UpdateForm = () => {
         allCountry();
         allState();
         allTimezone()
-    }, [handleFormData.country_id])
+    }, [handleFormData.country_id, country_id, id, state_id])
 
     const handleForm = (e) => {
-
         const name = e.target.name
         const value = e.target.value
         setHandleFormData(values => ({ ...values, [name]: value }))
 
     }
-
-
-
-
     const allCountry = () => {
         getData('/countries')
             .then(res => {
@@ -63,7 +66,7 @@ const UpdateForm = () => {
             })
     }
     const allState = () => {
-        getData(`/states/${handleFormData.country_id}`)
+        getData(`/states/${handleFormData.country_id || country_id}`)
             .then(res => {
                 if (res) {
                     setStates(res)
@@ -71,7 +74,7 @@ const UpdateForm = () => {
             })
     }
     const allTimezone = () => {
-        getData(`/timezones/${handleFormData.country_id}`)
+        getData(`/timezones/${handleFormData.country_id || country_id}`)
             .then(res => {
                 if (res) {
                     setTimezones(res)
@@ -84,7 +87,6 @@ const UpdateForm = () => {
     const searchCompanies = (e) => {
         const searchWord = e.target.value
         if (searchWord) {
-
             setTrigger(true)
         } else {
             setTrigger(false)
@@ -102,10 +104,12 @@ const UpdateForm = () => {
     const handleSelectTags = (e) => {
         setSelectTags(e)
     }
+    const countryInfo = countries.find(item => item.id === parseInt(country_id))
+    const stateInfo = states.find(item => item.id === parseInt(state_id))
+    const timezoneInfo = timezones.find(item => item.id === parseInt(timezone_id))
 
-    // const { company_id, company, job_title, job_salary, job_description, job_vacancy, job_bounty, country_id, state_id, timezone_id } = router.query
+    // console.log(states)
 
-    console.log(router.query)
     const handleSubmit = (e) => {
         e.preventDefault()
         setDisable(true)
@@ -140,6 +144,8 @@ const UpdateForm = () => {
         value: tag.id
     }));
 
+
+
     const styles = {
         position: 'absolute',
         marginTop: '12px',
@@ -162,6 +168,7 @@ const UpdateForm = () => {
                                             <i className="fas fa-search"></i>
                                         </span>
                                         <input
+                                            defaultValue={moreData?.company?.company_name}
                                             required
                                             onChange={searchCompanies}
                                             className="form-control"
@@ -175,7 +182,7 @@ const UpdateForm = () => {
                                 search-list-area ${stylesClass.search__list__area}`}>
 
                                             <ul className="list-unstyled">
-                                                {filterData.map((item, i) => <li key={i} onClick={() => addSearch(item)} className='p-2 bg-secondary m-2 rounded-1'>{item.company_name}</li>)}
+                                                {filterData.map((item, i) => <li key={i} onClick={() => addSearch(item)} style={{ cursor: 'pointer' }} className='p-2 bg-secondary m-2 rounded-1'>{item.company_name}</li>)}
                                                 {filterData.length === 0 && <li>Company not found</li>}
                                             </ul>
                                         </div>
@@ -194,7 +201,7 @@ const UpdateForm = () => {
                                             disabled
                                             className="form-control"
                                             placeholder="Name here"
-                                            defaultValue={search.company_name}
+                                            defaultValue={search.company_name || moreData?.company?.company_name}
                                         />
 
                                     </div>
@@ -210,6 +217,7 @@ const UpdateForm = () => {
                                     <i className="fas fa-pen"></i>
                                 </span>
                                 <input
+                                    defaultValue={job_title}
                                     required
                                     name="job_title"
                                     onChange={handleForm}
@@ -228,6 +236,7 @@ const UpdateForm = () => {
                                         <i className="fas fa-money-check"></i>
                                     </span>
                                     <input
+                                        defaultValue={job_salary}
                                         required
                                         name="job_salary"
                                         onChange={handleForm}
@@ -246,6 +255,7 @@ const UpdateForm = () => {
                                         <i className="fas fa-users"></i>
                                     </span>
                                     <input
+                                        defaultValue={job_vacancy}
                                         required
                                         name="job_vacancy"
                                         onChange={handleForm}
@@ -264,6 +274,7 @@ const UpdateForm = () => {
                                         <i className="fas fa-hand-holding-usd"></i>
                                     </span>
                                     <input
+                                        defaultValue={job_bounty}
                                         required
                                         onChange={handleForm}
                                         name="job_bounty"
@@ -279,6 +290,7 @@ const UpdateForm = () => {
                             <label>Job Description <span className='text-danger'>*</span></label>
                             <textarea
                                 // minLength='100'
+                                defaultValue={job_description}
                                 onChange={handleForm}
                                 name="job_description"
                                 maxLength="250"
@@ -295,11 +307,12 @@ const UpdateForm = () => {
                         </div>
                         <div className="mb-3  col-12 col-sm-6">
                             <label>Select Tags <span className='text-danger'>*</span></label>
+                            <br />
+                            <label > Previous: {moreData?.tags.map((item, i) => <span className='pe-2' key={item.id}>{item.tag_name}</span>)}</label>
                             <div>
 
                                 <Select
                                     onChange={handleSelectTags}
-
                                     isMulti
                                     name="colors"
                                     options={tagOption}
@@ -311,6 +324,8 @@ const UpdateForm = () => {
                         </div>
                         <div className='"mb-3  col-12 col-sm-6'>
                             <label>Country <span className='text-danger'>*</span></label>
+                            <br />
+                            <label > Previous: {countryInfo?.country_name}</label>
 
                             <div>
                                 <span style={styles}>
@@ -325,10 +340,12 @@ const UpdateForm = () => {
 
                                     style={{ paddingLeft: '30px' }}
                                 >
+
                                     <option defaultValue >Select Country</option>
                                     {
                                         countries?.map((item, index) => <option key={index} value={item.id}>{item.country_name}</option>)
                                     }
+
                                 </select>
 
                             </div>
@@ -336,6 +353,8 @@ const UpdateForm = () => {
 
                         <div className='mb-3 col-12 col-sm-6'>
                             <label>State <span className='text-danger'>*</span></label>
+                            <br />
+                            <label > Previous: {stateInfo?.state_name}</label>
 
                             <div>
                                 <span style={styles}>
@@ -350,7 +369,8 @@ const UpdateForm = () => {
                                     onChange={handleForm}
                                     style={{ paddingLeft: '30px' }}
                                 >
-                                    <option defaultValue>Select State</option>
+
+                                    <option defaultValue >Select State</option>
                                     {
                                         states?.map((item, index) => <option key={index} value={item.id}>{item.state_name}</option>)
                                     }
@@ -362,6 +382,8 @@ const UpdateForm = () => {
                         <div className='mb-3 col-12 col-sm-6'>
 
                             <label>Time Zone <span className='text-danger'>*</span></label>
+                            <br />
+                            <label > Previous: {timezoneInfo?._zone_name_}</label>
 
                             <div>
                                 <span style={styles}>
@@ -375,7 +397,7 @@ const UpdateForm = () => {
                                     onChange={handleForm}
                                     style={{ paddingLeft: '30px' }}
                                 >
-                                    <option defaultValue >Select time zone</option>
+                                    <option defaultValue >Select timezone</option>
                                     {
                                         timezones?.map((item, index) => <option key={index} value={item.id}>{item._zone_name_}</option>)
                                     }

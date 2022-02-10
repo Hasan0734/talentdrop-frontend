@@ -1,5 +1,6 @@
 
 
+import { Toaster } from 'react-hot-toast';
 import Layout from '../layout';
 import styles from './JobDesc.module.css';
 import JobDescription from './JobDescription';
@@ -9,6 +10,10 @@ export default function JobDesc({ jobDetail }) {
 
   return (
     <Layout>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <section className={styles.job__description}>
         <div className="container">
           <div className="row justify-content-center px-3">

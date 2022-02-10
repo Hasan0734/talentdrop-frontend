@@ -17,7 +17,7 @@ const MessageCard = ({ messages }) => {
         authPost(`/contact/${id}`, {}, admins.token)
             .then(res => {
                 // toast.success('Message deleted successfully.')
-                dispatch(setMessages())
+                dispatch(setMessages(admins.token))
             })
 
     }
@@ -41,9 +41,6 @@ const MessageCard = ({ messages }) => {
                                     <div className="flex-grow-1 me-2">
                                         <span className="fw-bolder text-gray-800 text-hover-primary fs-6">
                                             {name}
-
-
-
                                         </span>
                                         <span className="text-muted fw-bold d-block">{email} </span>
                                         <span className='text-warning'><TimeAgo date={created_at} /></span>

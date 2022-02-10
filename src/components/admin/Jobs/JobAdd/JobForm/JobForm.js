@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { BeatLoader } from 'react-spinners';
 import { setTags } from '../../../../../../store/tags/actions';
-import { getData } from './../../../../../../__lib__/helpers/HttpService';
+import { getData, postData } from './../../../../../../__lib__/helpers/HttpService';
 import stylesClass from './JobForm.module.css';
 
 

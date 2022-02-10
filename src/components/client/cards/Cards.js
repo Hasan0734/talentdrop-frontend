@@ -49,11 +49,11 @@ export default function Cards({ jobs, generalJob }) {
             <div className="row">
               <div className="col-12 ">
                 <div className={styles.card__row}>
-                  <CardRow job={generalJob} />
-                  {
-                    filterJob.map((job, i) => <CardRow job={job} key={i} />)
-                  }
 
+                  {/* {
+                    filterJob.map((job, i) => <CardRow job={job} key={i} />)
+                  } */}
+                  {jobs?.length && jobs.map((job, i) => <CardRow job={job} key={i} />)}
                 </div>
               </div>
             </div>}

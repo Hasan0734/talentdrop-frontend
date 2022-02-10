@@ -384,7 +384,7 @@ const CompanyForm = () => {
 
                         </div>
                         <div className="mb-3 col-12 col-sm-6">
-                            <label>Instagram (Optional)</label>
+                            <label>Instagram</label>
                             <div>
                                 <span style={styles}>
                                     <i className="fab fa-instagram-square"></i>

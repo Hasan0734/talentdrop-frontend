@@ -4,7 +4,7 @@ export const messageSlice = createSlice({
     name: "messages",
     initialState: {
         messageList: null,
-        isLoding: true
+        isLoading: true
 
     },
     reducers: {
@@ -12,7 +12,7 @@ export const messageSlice = createSlice({
             return {
                 ...state,
                 messageList: action.payload,
-                isLoding: false
+                isLoading: false
 
             }
         },

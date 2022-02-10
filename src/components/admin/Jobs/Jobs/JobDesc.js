@@ -105,17 +105,7 @@ const JobDesc = ({ job }) => {
 
 
                     </div> */}
-                    <div className='col-12 col-sm-4 p-5 text-white'>
-                        <div className="border rounded my-3">
-                            <div className="card-body">
-                                <h5>Description here</h5>
-                                <p>{job_description}</p>
 
-                            </div>
-                        </div>
-
-
-                    </div>
                     <div className="col-12 col-sm-4 p-5 text-white">
                         <div className="border rounded my-3">
                             <div className="card-body">
@@ -127,9 +117,18 @@ const JobDesc = ({ job }) => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-3'>
+                    <div className='col-12 col-sm-4 p-5 text-white'>
+                        <div className="border rounded my-3">
+                            <div className="card-body">
+                                <h5>Description here</h5>
+                                <p>{job_description}</p>
+
+                            </div>
+                        </div>
+
 
                     </div>
+
 
                 </div>
             </div>
